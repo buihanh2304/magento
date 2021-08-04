@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="HanhBT\HelloWorld\Language\LanguageInterface" type="HanhBT\HelloWorld\Language\English" />
+
+    <preference for="HanhBT\HelloWorld\API\DressInterface" type="HanhBT\HelloWorld\Model\Dress" />
+    <preference for="HanhBT\HelloWorld\API\Color" type="HanhBT\HelloWorld\Model\Yellow" />
+    <preference for="HanhBT\HelloWorld\API\Size" type="HanhBT\HelloWorld\Model\M" />
+
+    <type name="HanhBT\HelloWorld\Model\Dress">
+        <arguments>
+            <argument name="color" xsi:type="object">HanhBT\HelloWorld\Model\Green</argument>
+            <argument name="size" xsi:type="object">HanhBT\HelloWorld\Model\S</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="customColor" type="HanhBT\HelloWorld\Model\CustomColor">
+        <arguments>
+            <argument name="color" xsi:type="string">blue</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="HanhBT\HelloWorld\Model\Short">
+        <arguments>
+            <argument name="color" xsi:type="object">customColor</argument>
+        </arguments>
+    </type>
+</config>
