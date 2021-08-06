@@ -1,0 +1,57 @@
+<?php
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+// phpcs:disable Generic.Files.LineLength.TooLong
+
+/** @var \HanhBT\Event\Block\Index $block */
+/** @var \HanhBT\Event\ViewModel\UserDataProvider $viewModel */
+
+$viewModel = $block->getViewModel();
+?>
+<form class="form event" action="<?= $block->escapeUrl($block->getFormAction()) ?>" id="event-form" method="post" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>" data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?= $block->escapeHtml(__('Send New Event')) ?></span></legend><br />
+        <div class="field title required">
+            <label class="label" for="title"><span><?= $block->escapeHtml(__('Title')) ?></span></label>
+            <div class="control">
+                <input name="title" id="title" title="<?= $block->escapeHtmlAttr(__('Title')) ?>" value="<?= $block->escapeHtmlAttr($viewModel->getTitle()) ?>" class="input-text" type="text" data-validate="{required:true}" />
+            </div>
+        </div>
+        <div class="field description required">
+            <label class="label" for="description">
+                <span><?= $block->escapeHtml(__('Description')) ?></span>
+            </label>
+            <div class="control">
+                <textarea name="description" id="description" title="<?= $block->escapeHtmlAttr(__('Description')) ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}"><?= $block->escapeHtml($viewModel->getDescription()) ?></textarea>
+            </div>
+        </div>
+        <div class="field address required">
+            <label class="label" for="address"><span><?= $block->escapeHtml(__('Address')) ?></span></label>
+            <div class="control">
+                <input name="address" id="address" title="<?= $block->escapeHtmlAttr(__('Address')) ?>" value="<?= $block->escapeHtmlAttr($viewModel->getAddress()) ?>" class="input-text" type="text" data-validate="{required:true}" />
+            </div>
+        </div>
+        <div class="field time required">
+            <label class="label" for="time"><span><?= $block->escapeHtml(__('Time')) ?></span></label>
+            <div class="control">
+                <input name="time" id="time" title="<?= $block->escapeHtmlAttr(__('Time')) ?>" value="<?= $block->escapeHtmlAttr($viewModel->getTime()) ?>" class="input-text" type="date" data-validate="{required:true}" />
+            </div>
+        </div>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                <span><?= $block->escapeHtml(__('Submit')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Customer/js/block-submit-on-send": {
+                "formId": "event-form"
+            }
+        }
+    }
+</script>

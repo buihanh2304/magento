@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="HanhBT_Event::event" title="Events" module="HanhBT_Event" sortOrder="51" resource="HanhBT_Event::event"/>
+        <add id="HanhBT_Event::event_list" title="Manage Events" module="HanhBT_Event" sortOrder="10" action="event/event" resource="HanhBT_Event::event_list" parent="HanhBT_Event::event"/>
+    </menu>
+</config>

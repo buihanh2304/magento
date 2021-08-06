@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="HanhBT_Event::event" title="Event" translate="title" sortOrder="31">
+                    <resource id="HanhBT_Event::event_list" title="List" translate="title" sortOrder="10" />
+                    <resource id="HanhBT_Event::save" title="Save" translate="title" sortOrder="20" />
+                    <resource id="HanhBT_Event::delete" title="Delete" translate="title" sortOrder="20" />
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
