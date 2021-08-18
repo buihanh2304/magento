@@ -7,11 +7,12 @@ use HanhBT\HelloWorld\API\DressInterface;
 use HanhBT\HelloWorld\Model\Dress;
 use HanhBT\HelloWorld\Model\Short;
 use Magento\Framework\App\Action\HttpGetActionInterface;
+use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends \Magento\Framework\App\Action\Action implements HttpGetActionInterface
+class Index extends Action implements HttpGetActionInterface
 {
     private $pageFactory;
 
@@ -31,6 +32,7 @@ class Index extends \Magento\Framework\App\Action\Action implements HttpGetActio
         $this->language = $language;
         $this->dress = $dress;
     }
+
     /**
      * Index action
      *
