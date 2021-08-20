@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="hanhbt_cron">
+        <job name="hanhbt_cron_sample" instance="HanhBT\Queue\Cron\Sample" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+        <job name="hanhbt_cron_sample2" instance="HanhBT\Queue\Cron\OtherSample" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+    </group>
+</config>
