@@ -5,7 +5,7 @@ namespace HanhBT\HelloWorld\Model;
 use HanhBT\HelloWorld\API\Color;
 use HanhBT\HelloWorld\API\Size;
 
-class Short
+class Pants
 {
     private $color;
     private $size;
@@ -16,5 +16,13 @@ class Short
     ) {
         $this->color = $color;
         $this->size = $size;
+    }
+
+    public function getType()
+    {
+        $color = $this->color->getColor();
+        $size = $this->size->getSize();
+
+        return "This pants has {$size} size and {$color} color";
     }
 }

@@ -1,12 +1,17 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="HanhBT\HelloWorld\Language\LanguageInterface" type="HanhBT\HelloWorld\Language\English" />
+<config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd"
+>
+    <preference for="HanhBT\HelloWorld\Language\LanguageInterface" type="HanhBT\HelloWorld\Language\Vietnamese" />
+
+    <preference for="HanhBT\Event\Block\Index" type="HanhBT\HelloWorld\Block\Event\Index" />
 
     <preference for="HanhBT\HelloWorld\API\DressInterface" type="HanhBT\HelloWorld\Model\Dress" />
     <preference for="HanhBT\HelloWorld\API\Color" type="HanhBT\HelloWorld\Model\Yellow" />
     <preference for="HanhBT\HelloWorld\API\Size" type="HanhBT\HelloWorld\Model\M" />
 
-    <type name="HanhBT\HelloWorld\Model\Dress">
+    <type name="HanhBT\HelloWorld\Model\Dress" shared="false">
         <arguments>
             <argument name="color" xsi:type="object">HanhBT\HelloWorld\Model\Green</argument>
             <argument name="size" xsi:type="object">HanhBT\HelloWorld\Model\S</argument>
@@ -15,13 +20,25 @@
 
     <virtualType name="customColor" type="HanhBT\HelloWorld\Model\CustomColor">
         <arguments>
-            <argument name="color" xsi:type="string">blue</argument>
+            <argument name="color" xsi:type="string">Blue</argument>
         </arguments>
     </virtualType>
 
-    <type name="HanhBT\HelloWorld\Model\Short">
+    <type name="HanhBT\HelloWorld\Model\Shorts">
         <arguments>
             <argument name="color" xsi:type="object">customColor</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="otherCustomColor" type="HanhBT\HelloWorld\Model\CustomColor">
+        <arguments>
+            <argument name="color" xsi:type="string">Black</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="HanhBT\HelloWorld\Model\Pants">
+        <arguments>
+            <argument name="color" xsi:type="object">otherCustomColor</argument>
         </arguments>
     </type>
 </config>

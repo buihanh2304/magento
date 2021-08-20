@@ -4,5 +4,7 @@ namespace HanhBT\HelloWorld\API;
 
 interface DressInterface
 {
-    public function getDressType();
+    public function getType();
+
+    public function setName($name);
 }
